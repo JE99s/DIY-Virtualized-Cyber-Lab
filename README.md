@@ -2,7 +2,7 @@
 <h2>Description</h2>
 <p>I'll walk you through my process of creating a virtual environment to hone technical skills. It can be done via VBox or VMware. I'll be utilizing VirtualBox for this project.</p>
 <br />
-<img src="" height="80%" width="80%" alt="Cyber lab Concept"/>
+<img src="https://i.imgur.com/ONUVZPC.png" height="80%" width="80%" alt="Cyber lab Concept"/>
 <h2>Utilities Used</h2>
 
 - <b>VirtualBox Hypervisor</b>
