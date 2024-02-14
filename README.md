@@ -343,6 +343,12 @@ https://www.reddit.com/r/PFSENSE/comments/17z1u6f/dhcp_registration_on_dns_resol
 <p>Click <b>Save</b> and <b>Apply Changes</b>.</p>
 
 <h3>Congifure the Firewall Rules</h3>
+<p>LAN Desired End-State</p>
+<img src="https://i.imgur.com/7bhFDh6.png" height="70%" width="70%" alt="LAN Firewall Rules"/>
+<p>Isolated LAN Desired End-State</p>
+<img src="https://i.imgur.com/62ygyAP.png" height="70%" width="70%" alt="ISOLATED Firewall Rules"/>
+<p>AD_LAB LAN Desired End-State</p>
+<img src="https://i.imgur.com/23sC2WH.png" height="70%" width="70%" alt="AD_LAB Firewall Rules"/>
 <h3>Make Some System Tweaks to pfSense</h3>
 <p>Go to <b>System > Advanced</b></p>
 <img src="https://i.imgur.com/xMnwhbn.png" height="25%" width="25%" alt="Choose System > Advanced"/>
