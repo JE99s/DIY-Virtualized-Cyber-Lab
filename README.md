@@ -148,32 +148,144 @@ Choose <b>Install pfsense</b>
 <p>Wait for the VM to finish booting. When asked <b><i>Should VLANs be set up now [y|n]?</i></b>, choose <b><i>n</i></b>.</p>
 
 <p><i>Enter the WAN interface</i></p>
-  <img src="https://i.imgur.com/cuYkioE.png" height="60%" width="60%" alt="WAN Interface"/>
+  <img src="https://i.imgur.com/cuYkioE.png" height="65%" width="65%" alt="WAN Interface"/>
 <p><i>Enter the LAN interface</i></p>
-  <img src="https://i.imgur.com/6Ca7nuy.png" height="60%" width="60%" alt="LAN Interface"/>
+  <img src="https://i.imgur.com/6Ca7nuy.png" height="65%" width="65%" alt="LAN Interface"/>
 <p><i>This will be the ISOLATED interface</i></p>
-  <img src="https://i.imgur.com/ORG9kk3.png" height="60%" width="60%" alt="ISOLATED Interface"/>
+  <img src="https://i.imgur.com/ORG9kk3.png" height="65%" width="65%" alt="ISOLATED Interface"/>
 <p><i>This will be the AD_LAB interface</i></p>
-  <img src="https://i.imgur.com/sVpVRXY.png" height="60%" width="60%" alt="AD_Lab Interface"/>
+  <img src="https://i.imgur.com/sVpVRXY.png" height="65%" width="65%" alt="AD_Lab Interface"/>
 <br />
 <img src="https://i.imgur.com/vjLHALV.png" height="60%" width="60%" alt="Y for Interface Assignment"/>
 
 <h3>Configuring the Interfaces</h3>
 
+<p>
+  - The WAN interface should pull an IP address from your home network
+  - The Default LAN IP address space is 192.168.1.1/24
+  - OPT1 (optional interface 1) - Isolated - is not yet configured
+  - OPT2 (optional interface 2) - AD_LAB - is not yet configured
+</p>
+<img src="https://i.imgur.com/k7V33EZ.png" height="65%" width="65%" alt="Configuring Interfaces"/>
+
 <h4>Configure the LAN</h4>
+<img src="https://i.imgur.com/LcanRFk.png" height="65%" width="65%" alt="Enter option 2"/>
+Enter option 2 to set the IP address for the interface. Enter option 2 once againt for the LAN interface.
+<br />
+<p>Enter 'n' to configure the address statically</p>
+<img src="https://i.imgur.com/fp8z3SG.png" height="65%" width="65%" alt="Enter 'n' to configure the address statically"/>
+<br/ >
+<p>Enter the network address and subnet mask bits</p>
+<img src="https://i.imgur.com/b1VOEaY.png" height="65%" width="65%" alt="Enter the network address and subnet mask bits"/>
+<br />
+<p>Press Enter here, this is a LAN.</p>
+<img src="https://i.imgur.com/ZZFgnoP.png" height="65%" width="65%" alt="Press enter here this is a LAN."/>
+<br />
+<p>Enter 'n' as to configure the address statically</p>
+<img src="https://i.imgur.com/UM1UIuI.png" height="65%" width="65%" alt="'n' to config the address statically"/>
+<br />
+<p>Press Enter. We will not be using IPv6</p>
+<img src="https://i.imgur.com/GuZj4vs.png" height="65%" width="65%" alt="no IPv6"/>
+<br />
+<p>Enter y to enable the DHCP server</p>
+<img src="https://i.imgur.com/Yg2nppF.png" height="65%" width="65%" alt="enable DHCP server"/>
+<br />
+<p>Enter the start and end range</p>
+<img src="https://i.imgur.com/OrDAhDB.png" height="65%" width="65%" alt="IP address range for DHCP server"/>
+<br />
+<p>Enter n, we want to keep using TLS on the web portal</p>
+<img src="https://i.imgur.com/CSvLJNl.png" height="65%" width="65%" alt="n, want to keep using TLS on web portal"/>
+<br />
+<img src="https://i.imgur.com/NnYohO7.png" height="69%" width="69%" alt="Done with LAN"/>
+<p>Press Enter. ALl done with the LAN interface</p>
 
 <h4>Configure the Isolated LAN</h4>
+<img src="https://i.imgur.com/OaOI2Hn.png" height="65%" width="65%" alt="Enter option 2 & 3"/>
+Enter option 2 to set the IP address for the interface. Enter option 3 to configure the OPT3 interface.
+<br />
+<p>Enter 'n' to configure the address statically</p>
+<img src="https://i.imgur.com/WRb6oW5.png" height="65%" width="65%" alt="Enter 'n' to configure the address statically"/>
+<br/ >
+<p>Enter the network address and subnet mask bits</p>
+<img src="https://i.imgur.com/RHfMAKi.png" height="65%" width="65%" alt="Enter the network address"/>
+<img src="https://i.imgur.com/YT2GbUB.png" height="65%" width="65%" alt="Enter subnet mask bits"/>
+<br />
+<p>Press Enter here, this is a LAN.</p>
+<img src="https://i.imgur.com/FBfEjMM.png" height="65%" width="65%" alt="Press enter here this is a LAN."/>
+<br />
+<p>Enter 'n' as to configure the address statically</p>
+<img src="https://i.imgur.com/igSHmLG.png" height="65%" width="65%" alt="'n' to config the address statically"/>
+<br />
+<p>Press Enter. We will not be using IPv6</p>
+<img src="https://i.imgur.com/o4ugWBs.png" height="65%" width="65%" alt="no IPv6"/>
+<br />
+<p>Enter y to enable the DHCP server</p>
+<img src="https://i.imgur.com/RNPDASm.png" height="65%" width="65%" alt="enable OPT1 DHCP server"/>
+<br />
+<p>Enter n, we want to keep using TLS on the web portal</p>
+<img src="https://i.imgur.com/CSvLJNl.png" height="65%" width="65%" alt="n, want to keep using TLS on web portal"/>
+<br />
+<img src="https://i.imgur.com/oQA9JlU.png" height="69%" width="69%" alt="Done with LAN"/>
+<p>Press Enter. ALl done with the ISOLATED LAN interface</p>
 
 <h4>Configure the AD Lab LAN</h4>
-
-<h4>Final Check</h4>
-
+<img src="https://i.imgur.com/RkghfDX.png" height="65%" width="65%" alt="Enter option 2 & 4"/>
+Enter option 2 to set the IP address for the interface. Enter option 4 to configure the OPT4 interface.
 <br />
-<img src="https://i.imgur.com/Ihwuk0n.png" height="75%" width="75%" alt="Linux command line steps"/>
+<p>Enter 'n' to configure the address statically</p>
+<img src="https://i.imgur.com/iuUeLv0.png" height="65%" width="65%" alt="Enter 'n' to configure the address statically"/>
+<br/ >
+<p>Enter the network address and subnet mask bits</p>
+<img src="https://i.imgur.com/1adL7Vm.png" height="65%" width="65%" alt="Enter the network address"/>
+<img src="https://i.imgur.com/kXrocwo.png" height="65%" width="65%" alt="Enter subnet mask bits"/>
 <br />
-
-
-<img src="https://i.imgur.com/0pMs6K4.png" height="75%" width="75%" alt="Linux command line steps"/>
+<p>Press Enter here, this is a LAN.</p>
+<p>Enter 'n' as to configure the address statically</p>
+<img src="https://i.imgur.com/7TmJykc.png" height="65%" width="65%" alt="'n' to config the address statically"/>
 <br />
-At the 
+<p>Press Enter. We will not be using IPv6</p>
+<img src="https://i.imgur.com/sVh8Cso.png" height="65%" width="65%" alt="no IPv6"/>
+<br />
+<p>Enter n to disable the DHCP server, as the domain controller wil be acting as the DHCP server</p>
+<img src="https://i.imgur.com/lvfy1Gy.png" height="65%" width="65%" alt="disable OPT4 DHCP server"/>
+<br />
+<p>Enter n, we want to keep using TLS on the web portal</p>
+<br />
+<p>Press Enter. All done with the AD_LAB interface</p>
+
+<h3>Final Check</h3>
+<p>You should now see something like this</p>
+<img src="https://i.imgur.com/asnfjxa.png" height="70%" width"70%" alt="Final check"/>
+<br />
+<h4>One thing to Note</h4>
+<p><b><ins>I will not</ins></b> be making the pfSense web console available from the WAN. This is because you may find yourself using a laptop and if you connect to public wireless networks, then your pfSense web console would be open to other on that network. We will us the Kali VM to configure the pfSense firewall rules shortly, but first...</p>
+
+<h3>Importing Kali Linux VM Into Lab</h3>
+<p>Go to https://www.kali.org/get-kali/</p>
+<img src="https://i.imgur.com/Jy2f1gz.png" height="70%" width="70%" alt="Kali Linux VM information"/>
+<br />
+<p>Click <i>Virtual Machines</i> and ensure to download the VM that correlates to the VirtualBox 64-bit download icon</p>
+<img src="https://i.imgur.com/wuSn51f.png" height="70%" width="70%" alt="Kali Linux VM VBox download icon"/>
+<br />
+<p>It's a big file, so you might have to wait a bit for the download to complete. Make sure that VirtualBox is open. Extract the <b>.7z</b> file to unarchive the <b>.vbox</b> and <b>.vdi</b> files. Rename the folder containing the VM files. Select the folder and move to a preferred location where you keep your VirtualBox VMs (e.g., alongside the pfSense VM).</p>
+
+<p>Click 'Tools' to add a VM</p>
+<img src="https://i.imgur.com/K1d0MZn.png" height="7%" width="7%" alt="VirtualBox Add VM button"/>
+<br />
+<p>Choose you Kali VM's <b>.vbox</b> file</p>
+<h4>❗ Do not start the VM yet</h4>
+<p>Right-click the Kali and choose <b>Settings</b>.</p>
+<img src="https://i.imgur.com/kSJXHYB.png" height="60%" width="60%" alt="settings > Network Kali"/>
+<p>⚠️  <b><ins>Attach the Kali VM to the pfSense LAN</ins></b></p>
+<img src="" height="60%" width="60%" alt="Attach kali to LAN"/>
+<p>You may also wish increase the RAM in the <b>System</b> settings, but that is your choice to make based on available resources. Next, click <b>OK</b>. Now start the Kali VM. The default credentials are:
+
+- Username: <b>kali</b>
+- Password: <b>kali</b></p>
+<img src="https://i.imgur.com/huRsrUv.png" height="60%" width="60%" alt="Kali VM login screen"/>
+<p>Please change the password promptly. Additionally, we can check in the terminal to ensure we're (connected to) on the LAN interface. We have the IP address <b>10.0.0.11</b> from the DHCP server on pfSense.</p>
+<img src="https://i.imgur.com/CKxjiN0.png" height="70%" width="70%" alt="Kali IP address"/>
+
+<h3>Configuring the pfSense Firewall</h3>
+
 <br />
