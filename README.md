@@ -9,6 +9,13 @@ This can be run on both a desktop or laptop. Your daily-use computer (laptop) ca
 <br />
 
 <img src="https://i.imgur.com/ONUVZPC.png" height="80%" width="80%" alt="Cyber lab Concept"/>
+<h2>Key Skills</h2>
+
+- <b>Networking, Subnetting</b>
+- <b>Firewall configurations</b>
+- <b>Troubleshooting</b>
+- <b>VM Configurations</b>
+
 <h2>Utilities Used</h2>
 
 - <b>VirtualBox Hypervisor</b>
@@ -17,6 +24,7 @@ This can be run on both a desktop or laptop. Your daily-use computer (laptop) ca
 <h2>Environments Used</h2>
 - <b>Windows 10 Host Machine </b>
 <br />
+
 <h3>Recommended System Specifications & Configurations</h3>
 
 -  <b>Multithreaded CPU with Virtualization Support</b>
