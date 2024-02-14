@@ -146,10 +146,33 @@ Choose <b>Install pfsense</b>
 
 <h3>Configurations Inside pfSense</h3>
 <p>Wait for the VM to finish booting. When asked <b><i>Should VLANs be set up now [y|n]?</i></b>, choose <b><i>n</i></b>.</p>
+
+<p><i>Enter the WAN interface</i></p>
+  <img src="https://i.imgur.com/cuYkioE.png" height="60%" width="60%" alt="WAN Interface"/>
+<p><i>Enter the LAN interface</i></p>
+  <img src="https://i.imgur.com/6Ca7nuy.png" height="60%" width="60%" alt="LAN Interface"/>
+<p><i>This will be the ISOLATED interface</i></p>
+  <img src="https://i.imgur.com/ORG9kk3.png" height="60%" width="60%" alt="ISOLATED Interface"/>
+<p><i>This will be the AD_LAB interface</i></p>
+  <img src="https://i.imgur.com/sVpVRXY.png" height="60%" width="60%" alt="AD_Lab Interface"/>
+<br />
+<img src="https://i.imgur.com/vjLHALV.png" height="60%" width="60%" alt="Y for Interface Assignment"/>
+
+<h3>Configuring the Interfaces</h3>
+
+<h4>Configure the LAN</h4>
+
+<h4>Configure the Isolated LAN</h4>
+
+<h4>Configure the AD Lab LAN</h4>
+
+<h4>Final Check</h4>
+
+<br />
 <img src="https://i.imgur.com/Ihwuk0n.png" height="75%" width="75%" alt="Linux command line steps"/>
 <br />
-At the command prompt, I execute <i>gpg --list-keys</i> to list the current public key ring for the student account. For now, the key ring will show only the student.pub key. Soon, I will import the instructor's public key.
-<br/>
+
+
 <img src="https://i.imgur.com/0pMs6K4.png" height="75%" width="75%" alt="Linux command line steps"/>
 <br />
 At the 
