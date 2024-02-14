@@ -1,4 +1,4 @@
-<h1>DIY-Virtualized-Cyber-Lab</h1>
+<h1>DIY Virtualized Cyber Lab</h1>
 <h2>Description</h2>
 
 <p>I'll walk you through my process of creating a virtual environment to hone technical skills. It can be done via VBox or VMware. I'll be utilizing VirtualBox for this project.
