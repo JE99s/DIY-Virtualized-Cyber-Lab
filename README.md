@@ -1,7 +1,13 @@
 <h1>DIY-Virtualized-Cyber-Lab</h1>
 <h2>Description</h2>
-<p>I'll walk you through my process of creating a virtual environment to hone technical skills. It can be done via VBox or VMware. I'll be utilizing VirtualBox for this project.</p>
+
+<p>I'll walk you through my process of creating a virtual environment to hone technical skills. It can be done via VBox or VMware. I'll be utilizing VirtualBox for this project.
+  
+This can be run on both a desktop or laptop. Your daily-use computer (laptop) can run labs and it could be a mobile security lab.
+</p>
+
 <br />
+
 <img src="https://i.imgur.com/ONUVZPC.png" height="80%" width="80%" alt="Cyber lab Concept"/>
 <h2>Utilities Used</h2>
 
@@ -10,18 +16,61 @@
 - <b>Kali Linux Offensive VM</b>
 <h2>Environments Used</h2>
 - <b>Windows 10 Host Machine </b>
+<br />
+<h3>Recommended System Specifications & Configurations</h3>
 
+-  <b>Multithreaded CPU with Virtualization Support</b>
+-  <b>At least 16GB RAM - 32GB would be better</b>
+- <b>Plenty of free disk space interally or externally (Regarding externally, I highly recommend External SSDs)</b>
+<br />
+<p>It's vital ensure that virtualization is enabled on your host system, mostly likely in the BIOS. </p>
 <h2>Walk-through:</h2>
 On my host machine, I will start with establishing the proper network segmentation for the virtual environment. I need to create a pfSense Virtual Machine (VM) so it can act as a firewall between the different virtual networks that will soon be created.
+<br />
+<h3>Intstall Virtual Box</h3>
+<p>To download the Virtualbox installer for your host OS, navigate to their downloads <a href="https://www.virtualbox.org/wiki/Downloads">page</a>.
+You'll see a list of downloads based on the host OS. At the time of sharing my journey, the latest version was <b>7.0.14</b>. </p>
+<br />
+<img src="https://i.imgur.com/GFoQLeu.png" height="35%" width="35%" alt="VBox Installer Version"/>
+- If downloading for <b><ins>Windows</ins></b>, click <i>Windows hosts</i>.
+- If downloading for <b><ins>Mac OS</ins></b>, click <i>OS X hosts</i>.
+- If downloading for <b><ins>Linux</ins></b>, click <i>Linux distributions</i> and follow the instructions. You can download via an <b>.rpm</b> or <b>.deb</b> package, or you can install using your package manager such as <b>yum</b> or <b>apt</b>.
+<br/>
+<h3>Install the VirtualBox Extension Pack</h3>
+<p>Once you've installed VirtualBox, it is recommended o add the extension pack for better VM support and functionality.</p>
+<img src="https://i.imgur.com/RezKGaS.png" height="35%" width="35%" alt="VBOX Extension Pack"/>
+<br />
+<p>You can download the extension pack file. Once you open the file, VirtualBox should be the default file handler and install the the extension pack</p> <br />
+<p><b><i>***NOTE: You must reinstall the extension pack any time you update your VirtualBox!***</i></b>
+</p>
+  
+<h3>Virtual Box Guest Additions</h3>
+<p>Virtual Guest Additions are additional pieces of software that can be installed <b><ins>inside the the VM</ins></b>, to have the machine run more smoothly inside VBox.</p>
 
+<p>For example, sometimes you may have a VM that has poor screen resolution, the screen doesn't resize, or some other strange issues. You may need to install the VirtualBox Guest Additions drivers to help the VM run more smoothly. </p>
+<br />
+<p>Whenever you are creating a lab - whether in the cloud or on prem. - the network should always be planned out first. Future growth should be factored in as well. It's much more difficult to change network design later than planning for it now.</p>
+
+  <p>⚠️
+pfSense is acting as the NAT router and firewall for the lab environment. Therefore, <b><ins>pfSense will need to be the first VM to boot</ins></b> when running your lab. After pfSense boots, you can start your other VMs.</p>
+
+<h3>Download pfSense</h3>
+<p>Go to: https://www.pfsense.org/download/ and choose the image with the following specifications:
+
+- AMD64
+- ISO installer
+- Choose the mirror closest to you</p>
+<img src="https://i.imgur.com/ir1dIls.png" height="50%" width="50%" alt="VBOX Extension Pack"/>
+<p>Now, go to the <b><ins>folder where you downloaded pfSense.</ins></b> We need to extract the <b>.iso</b> file from the archive. To make extracting easier I have <a href="https://www.7-zip.org/">7zip</a> installed. It can be some other archive extraction utility to decompress this <b>.gz</b> archive.
+
+Once extracted, we should now have a <b><i>pfSense-CE-#.#.#-RELEASE-amd64.iso</i></b> file in the folder.</p>
 <h3>VBox Configurations For PfSense VM</h3>
 On the Linux machine, I open a terminal and execute <i>md5sum --help</i>, to get a little reivew of the process and options for this tool. On the command prompt, I execute <i>cd documents</i> to change the current directory to the Documents folder.
 At the command prompt, I execute <i>ls -l</i>, to list the files in the Documents folder then I execute <i>cat Example.txt</i> to view the contents of the .txt file I created earlier.
 Concatonate Example.txt file <br/>
 <img src="https://i.imgur.com/UEvd86q.png" height="80%" width="80%" alt="pfSense VM Name and Operating System"/>
 <br />
-Still at the command prompt, I execute <i>md5sum Example.txt</i> to create an MD5sum hash string for the Example.txt file. This tool return a string of hexadecimal numbers that will be unique to my file on this virtual session.
-<br/>
+
 <img src="https://i.imgur.com/5SDYiFM.png" height="75%" width="75%" alt="pfSense VM Hardware"/>
 <br />
 At the command prompt, I execute <i>md5sum Example.txt > Example.txt.md5</i> to store the MD5sum hash string for the Example.txt file in a new file. I continue and execute <i>ls</i> to list the files in the student folder and verify that the new Example.txt.md5 file has been added to the Documents folder.
