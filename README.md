@@ -287,5 +287,74 @@ Enter option 2 to set the IP address for the interface. Enter option 4 to config
 <img src="https://i.imgur.com/CKxjiN0.png" height="70%" width="70%" alt="Kali IP address"/>
 
 <h3>Configuring the pfSense Firewall</h3>
-
+<p>On the Kali Linux VM, open your browser and navigate to: <b>https://10.0.0.1</b>. Click <b>Advanced</b> to accept the risk sand continue.</p>
+<img src="https://i.imgur.com/AHxNyzS.png" height="70%" width="70%" alt="Websearch 10.0.0.1"/>
+<img src="https://i.imgur.com/XNq71vu.png" height="70%" width="70%" alt="Accept the Risk and Continue"/>
 <br />
+<img src="https://i.imgur.com/6MZdP0O.png" height="70%" width="70%" alt="pfsense login page"/>
+<p>The default credentials are:
+  
+- Username: <b>admin</b>
+- Password: <b>pfsense</b>
+
+Click <b>Next</b></p>
+<img src="https://i.imgur.com/eon9LIU.png" height="70%" width="70%" alt="Welcome to pfSense software"/>
+<p>Click <b>Next</b> (again). Fill out the <b>Hostname and Domain</b>. <b><ins>Uncheck</ins> Override DNS</b>. Click <b>Next</b>.</p>
+<img src="https://i.imgur.com/Xh9K4jK.png" height="70%" width="70%" alt="Override DNS"/>
+<p>Double check your <b>timezone</b> and click <b>Next</b>.</p>
+<img src="https://i.imgur.com/9J1pRRJ.png" height="70%" width="70%" alt="Timezone"/>
+<p>Scroll down and <b>uncheck this box</b>. We're double-NAT, which means that the WAN network is also a private network, so we want to allow this. Click <b>Next</b>.</p>
+<img src="https://i.imgur.com/xKyqfsu.png" height="70%" width="70%" alt="Block RFC...Private Networks"/>
+<p>Leave this alone. Click <b>Next</b>.</p>
+<img src="https://i.imgur.com/oBYrtBq.png" height="70%" width="70%" alt="Configure LAN interface page"/>
+<p>Change the admin password. <b><ins>Save it in a password vault.</ins></b> Click next.</p>
+<img src="https://i.imgur.com/ZGEvxiH.png" height="70%" width="70%" alt="Change admin password"/>
+<p>Click <b>Reload</b>and wait for the web configurator to refresh. Click <b>Finish</b>.</p>
+
+<h3>Configure the Intefaces</h3>
+<h4>Isolated Interface</h4>
+<p>Choose OPT1</p>
+<img src="https://i.imgur.com/DDVR9tr.png" height="25%" width="25%" alt="Choose OPT1"/>
+<p>Set the <b>Description</b> to <b><i>Isolated</i></b>. Scroll down and click <b>Save</b> and <b>Apply Changes</b>.</p>
+<img src="https://i.imgur.com/UC9otEW.png" height="60%" width="60%" alt="Isolated description"/>
+<h4>AD_LAB Interface</h4>
+<p>Choose OPT2</p>
+<p>Set the Description to <b>AD_LAB</b>. Scroll down and click <b>Save</b> and <b>Apply Changes</b>.</p>
+<img src="https://i.imgur.com/xKtTAYb.png" height="25%" width="25%" alt="Select OPT2"/>
+<img src="https://i.imgur.com/zsTkvdP.png" height="60%" width="60%" alt="AD_LAB Description"/>
+<h3>Optimize the DNS Resolver Service</h3>
+<p>Go to <b>Services > DNS Resolver</b></p>
+<img src="https://i.imgur.com/XG23H4M.png" height="25%" width="25%" alt="Choose DNS Resolver"/>
+<p>Check these boxes, click <b>save</b> and <b>apply changes</b>.</p>
+<p>⚠️  <b><ins>Note: Jan 1, 2024</ins></b>
+
+Netgate is pushing people to the Kea DHCP daemon, as they're drepecating the ISC DHCP daemon. If you opt to move to the Kea DHCP daemon, these options will not be available. You will need to switch back to ISC DHCP, make your desired selections, then switch back to Kea DHCP.
+
+https://www.reddit.com/r/PFSENSE/comments/17z1u6f/dhcp_registration_on_dns_resolver/</p>
+<br />
+<img src="https://i.imgur.com/RX9zYzA.png" height="60%" width="60%" alt="Check DHCP reg. & Static DHCP"/>
+<p><b><ins>Still under DNS Resolver</ins></b>, go to <b>Advanced Settings</b>. Check both of these boxes. Click <b>save</b> and <b>apply changes</b>.</p>
+<img src="https://i.imgur.com/AmgQ5JK.png" height="60%" width="60%" alt="Check Prefetch support & Prefetch DNS key support"/>
+
+<h3>Give Kali a Static DHCP Lease</h3>
+<p>Go to <b>Status > DHCP Leases</b></p>
+<img src="https://i.imgur.com/jOudyfq.png" height="25%" width="25%" alt="Select DHCP Leases"/>
+<img src="https://i.imgur.com/O28TkPS.png" height="60%" width="60%" alt="Click on the button to add a static mapping & Change Kali IP address to 10.0.0.2"/>
+<p>Click <b>Save</b> and <b>Apply Changes</b>.</p>
+
+<h3>Congifure the Firewall Rules</h3>
+<h3>Make Some System Tweaks to pfSense</h3>
+<p>Go to <b>System > Advanced</b></p>
+<img src="https://i.imgur.com/xMnwhbn.png" height="25%" width="25%" alt="Choose System > Advanced"/>
+<p>Go to <b>Networking</b></p>
+<img src="https://i.imgur.com/fTrbtob.png" height="25%" width="25%" alt="Networking"/>
+<p>Scroll down and <b><ins>check this box</ins></b></p>
+<img src="https://i.imgur.com/SyvblzE.png" height="60%" width="60%" alt="Check Hardware Checksum Offloading box"/>
+<p>Click Save and Apply Changes. Click Reboot and reboot now.</p>
+<p>⚠️  Wait for pfSense to come back up before proceeding</p>
+<br />
+<h3>Grab Kali's New DHCP Reservation</h3>
+<p>Log into your Kali VM and open a terminal. Run the command as pictured below.</p>
+<img src="https://i.imgur.com/eQw3I6s.png" height="60%" width="60%" alt="Kali Linux command to reset IP address"/>
+<p>Your IP address should now be <b>10.0.0.2</b> as configured.</p>
+<img src="https://i.imgur.com/lDLqgqz.png" height="60%" width="60%" alt="Configured Kali IP address"/>
