@@ -364,3 +364,42 @@ https://www.reddit.com/r/PFSENSE/comments/17z1u6f/dhcp_registration_on_dns_resol
 <img src="https://i.imgur.com/eQw3I6s.png" height="60%" width="60%" alt="Kali Linux command to reset IP address"/>
 <p>Your IP address should now be <b>10.0.0.2</b> as configured.</p>
 <img src="https://i.imgur.com/lDLqgqz.png" height="60%" width="60%" alt="Configured Kali IP address"/>
+<br />
+<h3>Adding Vulnerable Machines to Home Lab</h3>
+<p>Now that we have an environment setup, you need a target machine to practice your attack techniques on.</p>
+<h4>Download Metasploitable 2 VM</h4>
+<p>Download Metasploitable: 2 VM from <a href="https://vulnhub.com">Vulnhub</a> and import it using the <b>.vmdk</b> file from an archive.</p>
+<img src="https://i.imgur.com/4cCXFcT.png" height="55%" width="55%" alt="Metasploitable 2"/>
+<p>Use the <b><ins>official</ins></b> Vulnhub mirror</p>
+<img src="https://i.imgur.com/C5Sf2Od.png" height="65%" width="65%" alt="official mirror for MS2"/>
+<p>Once the download is completed, unzip the file to extract the virtual disk</p>
+<img src="https://i.imgur.com/oAkIeZD.png" height="65%" width="65%" alt="MS2 .zip folder"/>
+<p>The <b>.vmdk</b> file is what we are after here.</p>
+<img src="https://i.imgur.com/EKmMHao.png" height="45%" width="45%" alt=".vmdk file"/>
+<img src="https://i.imgur.com/zYyd9gX.png" height="35%" width="35%" alt="VBox New Button"/>
+<img src="https://i.imgur.com/jEkv2TU.png" height="45%" width="45%" alt="VM name and OS"/>
+<img src="https://i.imgur.com/7JtT0mk.png" height="45%" width="45%" alt="MS2 VM hardware"/>
+<p>Add the virtual hard disk</p>
+<img src="https://i.imgur.com/AysOpqe.png" height="45%" width="45%" alt="add virtual hard disk"/>
+<p>Click the add disk button</p>
+<img src="https://i.imgur.com/DZKyq1g.png" height="45%" width="45%" alt="add disk button"/>
+<p>Ope the folder where MS2 was unzipped and select the <b>.vmdk</b> file</p>
+<img src="https://i.imgur.com/MvLcokh.png" height="45%" width="45%" alt="select .vmdk file"/>
+<img src="https://i.imgur.com/PNIbVYE.png" height="45%" width="45%" alt="choose"/>
+<img src="https://i.imgur.com/GxjxUE4.png" height="45%" width="45%" alt=" adjust virtual hard disk"/>
+<img src="https://i.imgur.com/bj8OLHh.png" height="45%" width="45%" alt="VM summary"/>
+<p>Click <b>Finish</b></p>
+<p>❗ DO NOT START THE VM!</p>
+<p>Right-click the Metasploitable 2 VM > choose <b>Settings > Network</b> and add the VM to the Isolated Internal Network</p>
+<img src="https://i.imgur.com/o8lTGAt.png" height="45%" width="45%" alt="VM network settings icon"/>
+<p>Now we start the VM. Once the machine loads up, login with <b>msfadmin:msfadmin</b> to check that the system grabbed an IP from the DHCP server. I go the IP address <b>10.6.6.11</b> which is the right what we want.</p>
+<img src="https://i.imgur.com/mAeSgmq.png" height="45%" width="45%" alt="MS2 IP address"/>
+<h3>Ping Kali from Metasploitable 2</h3>
+
+<img src="https://i.imgur.com/PIl4W5L.png" height="45%" width="45%" alt="Ip address ping"/>
+<img src="https://i.imgur.com/LNOC5CL.png" height="45%" width="45%" alt="DNS Suffix ping"/>
+<h3>Ping google.com from Metasploitable 2</h3>
+<p>Ping test fails as it should</p>
+<img src="https://i.imgur.com/QI1GhcR.png" height="45%" width="45%" alt="MS2 Fail ping test to google.com"/>
+<h3>Ping Metasploitable 2 from Kali VM</h3>
+<img src="https://i.imgur.com/ip9ggg2.png" height="60%" width="60%" alt="Kali VM ping to MS2"/>
